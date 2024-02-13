@@ -8,5 +8,6 @@ export const users = sqliteTable("users", {
     name: text("name").notNull(),
     userId: text("user_id").notNull().unique(),
     createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
-    imageUrl: text("image_url")
+    imageUrl: text("image_url"),
+    active: integer("active",{mode:"boolean"}).default(false)
 })
