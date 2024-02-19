@@ -1,9 +1,22 @@
 import Image from "next/image";
+import Display from "./_components/display";
 
-export default function Home() {
+
+export const revalidate = 0;
+
+
+
+
+export default async function Home() {
+
+
+  
+
   return (
     <main className="">
-              main page
+       <Display />
     </main>
   );
 }
+
+
