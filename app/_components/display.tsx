@@ -14,7 +14,7 @@ export default function Display() {
     useInterval(async () => {
         console.log("refreshing")
         setFiles(await getFiles())
-    },3000)
+    },30000)
 
 
     return (<div>
