@@ -1,8 +1,8 @@
 "use client"
 
 import { UploadthingFiles } from "@/types"
-import { useState } from "react"
-import { useInterval } from "usehooks-ts";
+import {  useState } from "react"
+import { useInterval} from "usehooks-ts";
 import { getFiles } from "./actions";
 
 
@@ -10,6 +10,9 @@ import { getFiles } from "./actions";
 
 export default function Display() {
     const [files,setFiles] = useState<UploadthingFiles>({ hasMore: false, files: [] });
+
+
+
 
     useInterval(async () => {
         console.log("refreshing")
