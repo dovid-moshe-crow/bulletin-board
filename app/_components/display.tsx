@@ -1,23 +1,26 @@
 "use client"
 
+
 import { UploadthingFiles } from "@/types"
-import {  useState } from "react"
+
 import { useInterval} from "usehooks-ts";
 import { getFiles } from "./actions";
+import { useQuery } from "react-query";
 
 
 
 
 export default function Display() {
-    const [files,setFiles] = useState<UploadthingFiles>({ hasMore: false, files: [] });
+
+    const { isLoading, error, data : files} = useQuery('files', getFiles)
+  //  const files = (getFiles())
 
 
+    if(isLoading || error || !files){
+        return <>Loading or error</>
+    }
 
-
-    useInterval(async () => {
-        console.log("refreshing")
-        setFiles(await getFiles())
-    },30000)
+   
 
 
     return (<div>
