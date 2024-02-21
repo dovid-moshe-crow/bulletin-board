@@ -1,12 +1,9 @@
-"use server"
-
 import { UploadthingFiles } from "@/types";
 
+export const revalidate = 0
 
+export async function GET(){
 
-
-
-export async function getFiles(){
     const files = await (await fetch("https://uploadthing.com/api/listFiles", {
         method: "POST",
         headers: {
@@ -19,5 +16,5 @@ export async function getFiles(){
         })
       })).json() as UploadthingFiles;
 
-      return files;
+    return Response.json(files)
 }
